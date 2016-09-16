@@ -114,6 +114,10 @@ if (NOT WIN32)
   add_definitions(-fPIC)
 endif()
 
+if(APPLE AND NOT CMAKE_MACOSX_RPATH AND NOT DEFINED CMAKE_INSTALL_NAME_DIR)
+  set(CMAKE_INSTALL_NAME_DIR ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX})
+endif()
+
 if (BUILD_TESTS)
   # enable ctest targets
   ENABLE_TESTING()
