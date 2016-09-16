@@ -16,9 +16,9 @@ IF (NOT DEFINED LIB_SUFFIX)
 		OUTPUT_VARIABLE ARCH
 	)
 	message(STATUS "Detected architecture '"  ${ARCH}  "'")
-	IF (ARCH STREQUAL x86_64)
+	IF (ARCH STREQUAL x86_64 AND NOT APPLE)
 		SET(LIB_SUFFIX 64)
-	ENDIF (ARCH STREQUAL x86_64)
+	ENDIF (ARCH STREQUAL x86_64 AND NOT APPLE)
 ENDIF (NOT DEFINED LIB_SUFFIX)
 
 # configure output folders so artifacts are built into a single set of
